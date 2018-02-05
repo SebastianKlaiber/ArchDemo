@@ -1,4 +1,4 @@
-package de.sklaiber.archdemo
+package de.sklaiber.archdemo.tests
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

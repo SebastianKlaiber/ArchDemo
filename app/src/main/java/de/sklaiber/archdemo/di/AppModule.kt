@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-class AppModule {
+class AppModule(val baseUrl: String) {
 
     @Provides
     @Singleton
@@ -57,7 +57,7 @@ class AppModule {
     @Singleton
     fun provideApiService(moshi: Moshi, okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-                .baseUrl("http://ip.jsontest.com/")
+                .baseUrl(baseUrl)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)

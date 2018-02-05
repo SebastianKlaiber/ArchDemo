@@ -6,6 +6,7 @@ import dagger.android.DaggerActivity
 import de.sklaiber.archdemo.R
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : DaggerActivity() {
@@ -21,7 +22,7 @@ class MainActivity : DaggerActivity() {
 
         compositeDisposable.add(mainActivityViewModel.showDataFromApi()
                 .subscribeBy(onSuccess = {
-                    Log.d("MainActivity", it.ip)
+                    ipAddressTv.text = it.ip
                 }, onError = {
                     Log.d("MainActivity", it.message)
                 }))
