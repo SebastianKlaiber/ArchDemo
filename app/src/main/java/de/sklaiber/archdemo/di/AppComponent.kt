@@ -8,7 +8,7 @@ import de.sklaiber.archdemo.App
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [(AndroidInjectionModule::class), (AppModule::class), (ActivityBuilder::class)])
+@Component(modules = [(AndroidInjectionModule::class), (AppModule::class), (MainActivityModule::class)])
 interface AppComponent {
 
     @Component.Builder

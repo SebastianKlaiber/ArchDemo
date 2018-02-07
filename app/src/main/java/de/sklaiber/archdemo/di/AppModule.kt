@@ -21,7 +21,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@Module
+@Module(includes = arrayOf(ViewModelModule::class))
 class AppModule(val baseUrl: String) {
 
     @Provides
@@ -41,7 +41,6 @@ class AppModule(val baseUrl: String) {
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
 
         val cacheDir = File(application.cacheDir, UUID.randomUUID().toString())
-        // 10 MiB cache
         val cache = Cache(cacheDir, 10 * 1024 * 1024)
 
         return OkHttpClient.Builder()

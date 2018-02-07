@@ -35,14 +35,17 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation "android.arch.lifecycle:viewmodel:$rootProject.architectureComponentsVersion"
+
+    implementation "android.arch.lifecycle:extensions:$rootProject.architectureComponentsVersion"
+    implementation 'com.android.support:support-v4:26.1.0'
     kapt "android.arch.lifecycle:compiler:$rootProject.architectureComponentsVersion"
     implementation "android.arch.persistence.room:runtime:$rootProject.roomArchitectureComponentsVersion"
     kapt "android.arch.persistence.room:compiler:$rootProject.roomArchitectureComponentsVersion"
     implementation "android.arch.persistence.room:rxjava2:$rootProject.roomArchitectureComponentsVersion"
+
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxkotlinVersion"

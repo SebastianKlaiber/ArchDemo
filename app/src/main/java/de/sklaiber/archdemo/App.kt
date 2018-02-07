@@ -5,8 +5,7 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
-import de.sklaiber.archdemo.di.AppModule
-import de.sklaiber.archdemo.di.DaggerAppComponent
+import de.sklaiber.archdemo.di.AppInjector
 import javax.inject.Inject
 
 open class App : Application(), HasActivityInjector {
@@ -15,16 +14,7 @@ open class App : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        setupGraph()
-    }
-
-
-    open fun setupGraph() {
-        DaggerAppComponent.builder()
-                .application(this)
-                .appModule(AppModule("http://ip.jsontest.com/"))
-                .build()
-                .inject(this)
+        AppInjector.init(this, "http://ip.jsontest.com/")
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = activityDispatchingAndroidInjector

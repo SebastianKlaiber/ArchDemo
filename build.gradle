@@ -36,7 +36,7 @@ ext {
 
     architectureComponentsVersion = "1.1.0"
     roomArchitectureComponentsVersion = "1.0.0"
-    daggerVersion = "2.13"
+    daggerVersion = "2.14.1"
     retrofitVersion = "2.3.0"
     okhttpVersion = "3.9.0"
     rxjavaVersion = "2.1.3"
